@@ -11,6 +11,9 @@ public class Administrator {
 	private String name;
 	private String mobile;
 	
+	private Gymnasium gymsAvailable[];
+	private GymOwner ownerEnrolled[];
+	
 	
 	public String getAdminId() {
 		return adminId;

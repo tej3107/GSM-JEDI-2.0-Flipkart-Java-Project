@@ -19,34 +19,49 @@ public class GMSApplicationClient {
 
 	public static void LoginMenu(Scanner in) {
 		System.out.println("Welcome to FlipFit Gymnasium Application");
-		System.out.println("Menu:-");
-		System.out.println("Login Credentials:-");
-		System.out.print("Username: ");
-		String username = in.next();
-		System.out.print("Password: ");
-		String password = in.next();
-		System.out.print("Select Role:-\n1.Admin\n2.Customer\n3.Gym Onwer ");
-		int role = in.nextInt();
-		User user = new User(username,password,role);
-		UserService authentication = new UserService();
-		if(authentication.authenticateUser(user)) {
-			System.out.println("Logged In");
-			switch(role) {
-			case 1: 
-				AdminGMSMenu Admin = new AdminGMSMenu();
-				Admin.AdminActionPage(in);
-			break;
-			case 2: 
-				CustomerGMSMenu Customer = new CustomerGMSMenu();
-				Customer.CustomerActionPage(in);
-			break;
-			case 3: 
-				GymnasiumGMSMenu Owner = new GymnasiumGMSMenu();
-				Owner.GymOwnerActionPage(in);
-			break;
+		int role = 5;
+		while(role!=4) {
+			System.out.println("Menu:-");
+			System.out.println("Login Credentials:-");
+			System.out.print("Username: ");
+			String username = in.next();
+			System.out.print("Password: ");
+			String password = in.next();
+			System.out.print("Select Role:-\n1.Admin\n2.Customer\n3.Gym Onwer\n4.Exit ");
+			role = in.nextInt();
+			User user = new User(username,password,role);
+			UserServiceInterface authentication = new UserService();
+			if(authentication.authenticateUser(user)) {
+				System.out.println("Logged In");
+				switch(role) {
+				case 1: 
+					if(authentication.authenticateUser(user)) {
+						AdminGMSMenu Admin = new AdminGMSMenu();
+						Admin.AdminActionPage(in);
+					}else {
+						System.out.println("Invalid Credentials");
+					}
+				break;
+				case 2: 
+					if(authentication.authenticateUser(user)) {
+						CustomerGMSMenu Customer = new CustomerGMSMenu();
+						Customer.CustomerActionPage(in);
+					}else {
+						System.out.println("Invalid Credentials");
+					}
+				break;
+				case 3: 
+					if(authentication.authenticateUser(user)) {
+						GymnasiumGMSMenu Owner = new GymnasiumGMSMenu();
+						Owner.GymOwnerActionPage(in);
+					}else {
+						System.out.println("Invalid Credentials");
+					}
+				break;
+				}
+			}else {
+				System.out.println("Invalid Creentials");
 			}
-		}else {
-			System.out.println("Invalid Creentials");
 		}
 		
 	}

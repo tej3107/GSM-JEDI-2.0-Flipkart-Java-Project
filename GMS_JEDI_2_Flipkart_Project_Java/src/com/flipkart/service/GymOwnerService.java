@@ -15,4 +15,8 @@ public class GymOwnerService {
 	public Gymnasium addGymDetails() {
 		return new Gymnasium();
 	}
+	
+	public boolean sendGymForApproval() {
+		return true;
+	}
 }

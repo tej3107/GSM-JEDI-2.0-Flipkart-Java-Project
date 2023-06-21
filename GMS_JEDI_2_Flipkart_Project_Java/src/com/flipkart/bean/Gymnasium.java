@@ -15,6 +15,7 @@ public class Gymnasium {
 	private double totalArea;
 	private int numItem;
 	
+	private boolean approved;
 	private Slots availableSlots[]; // To be made ArrayList
 	
 	
@@ -64,5 +65,13 @@ public class Gymnasium {
 
 	public void setOwnerId(String ownerId) {
 		this.ownerId = ownerId;
+	}
+	
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
 	}
 }

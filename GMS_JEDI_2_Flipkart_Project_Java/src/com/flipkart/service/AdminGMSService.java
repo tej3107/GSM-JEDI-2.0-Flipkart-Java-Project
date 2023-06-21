@@ -10,8 +10,8 @@ import java.util.*;
  * 
  */
 public class AdminGMSService implements AdminGMSInterface{
-	List<GymOwner> gymOwner = new ArrayList<GymOwner>();
-	List<Gymnasium> gymsAvailable = new ArrayList<Gymnasium>();
+	private List<GymOwner> gymOwner = new ArrayList<GymOwner>();
+	private List<Gymnasium> gymsAvailable = new ArrayList<Gymnasium>();
 	
 	public AdminGMSService() {
 		GymOwner owner1 = new GymOwner();
@@ -46,16 +46,16 @@ public class AdminGMSService implements AdminGMSInterface{
 		gym1.setApproved(true);
 		
 		Gymnasium gym2 = new Gymnasium();
-		gym1.setGymId("G002");
-		gym1.setName("Gym2");
-		gym1.setOwnerId("O001");
-		gym1.setApproved(false);
+		gym2.setGymId("G002");
+		gym2.setName("Gym2");
+		gym2.setOwnerId("O001");
+		gym2.setApproved(false);
 		
 		Gymnasium gym3 = new Gymnasium();
-		gym1.setGymId("G003");
-		gym1.setName("Gym3");
-		gym1.setOwnerId("O001");
-		gym1.setApproved(false);
+		gym3.setGymId("G003");
+		gym3.setName("Gym3");
+		gym3.setOwnerId("O001");
+		gym3.setApproved(false);
 		
 		gymOwner.add(owner1);
 		gymOwner.add(owner2);
@@ -66,11 +66,19 @@ public class AdminGMSService implements AdminGMSInterface{
 		gymsAvailable.add(gym1);
 		gymsAvailable.add(gym2);
 		gymsAvailable.add(gym3);
+		
+//		seeAllGyms();
 	}
 	
 	public void seeAllGymOwner() {
 		for(GymOwner value: gymOwner) {
 			System.out.println(value.getOwnerId() + " " + value.getName() + " " + value.isApproved());
+		}
+	}
+	
+	public void seeAllGyms() {
+		for(Gymnasium value: gymsAvailable) {
+			System.out.println(value.getGymId() + " " + value.getName() + " " + value.getOwnerId() + " " + value.isApproved());
 		}
 	}
 	
