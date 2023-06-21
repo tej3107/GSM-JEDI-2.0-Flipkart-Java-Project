@@ -15,8 +15,7 @@ public class Slots {
 	private int capacity;
 	private LocalDate date;
 	private LocalTime time;
-	
-	private String guestId[]; // To be made ArrayList
+	 // To be made ArrayList
 	
 	
 	public String getSlotId() {

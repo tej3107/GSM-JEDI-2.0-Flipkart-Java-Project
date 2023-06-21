@@ -15,7 +15,7 @@ public class Customer {
 	private String address;
 	private LocalDate dob;
 	
-	private String myBookingId[]; // To be made ArrayList
+	private Slots myBooking[]; // To be made ArrayList
 	
 	
 	public String getCustomerId() {
