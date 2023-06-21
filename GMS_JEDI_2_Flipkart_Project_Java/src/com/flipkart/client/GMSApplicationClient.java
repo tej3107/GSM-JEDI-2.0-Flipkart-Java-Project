@@ -38,11 +38,11 @@ public class GMSApplicationClient {
 			break;
 			case 2: 
 				CustomerGMSMenu Customer = new CustomerGMSMenu();
-				Customer.CustomerRegistration(in);
+				Customer.CustomerActionPage(in);
 			break;
 			case 3: 
 				GymnasiumGMSMenu Owner = new GymnasiumGMSMenu();
-				Owner.GymOwnerRegistration(in);
+				Owner.GymOwnerActionPage(in);
 			break;
 			}
 		}else {
